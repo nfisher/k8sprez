@@ -1,0 +1,38 @@
+# Kubernetes
+
+Launching Your Next Big Idea
+09 Jan 2022
+nathan.fisher@ibm.com
+
+## Contents
+
+1. **The Idea** - An overview.
+1. **Build It** - Docker.
+1. **Run It** - Pods.
+1. **Keep It Running** - Workloads and Scaling.
+1. **Serve It** - Services.
+1. **Secure It** - Pod Security and Network Policy.
+1. **Maybe but Probably Not** - Controllers and Operators.
+
+
+## The Idea 💡
+
+Fizz Buzz as a Service (FBaaS)
+
+Making fizz buzz available to the masses!
+
+
+## Build It
+
+## Build It - Docker
+
+.code Dockerfile
+
+## Run It
+
+## Run It - Minimal Pod Spec
+
+.code 001-pod.yaml
+
+
+

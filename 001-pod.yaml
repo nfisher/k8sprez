@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fizzbuzz
+spec:
+  containers:
+  - name: fizbuzz
+    image: fizzbuzz:1.0.0-
