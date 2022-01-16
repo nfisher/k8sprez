@@ -28,11 +28,17 @@ Making fizz buzz available to the masses!
 
 .code Dockerfile
 
+    docker build . -t nfinstana/fizzbuzz:1.0.0-85d759de \
+    && docker push nfinstana/fizzbuzz:1.0.0-85d759de
+
 ## Run It
 
 ## Run It - Minimal Pod Spec
 
 .code 001-pod.yaml
 
+## Run It - Noisy Neighbours
 
+.code 002-pod.yaml
 
+## Keep It Running

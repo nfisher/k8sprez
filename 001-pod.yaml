@@ -2,7 +2,11 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: fizzbuzz
+  namespace: instana-dev
+  labels:
+    # Standard labels - https://helm.sh/docs/chart_best_practices/labels/#standard-labels
+    app.kubernetes.io/version: "1.0.0-85d759de"
 spec:
   containers:
   - name: fizbuzz
-    image: fizzbuzz:1.0.0-
+    image: nfinstana/fizzbuzz:1.0.0-85d759de
