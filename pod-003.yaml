@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+# ...
+spec:
+  containers:
+  # ...
+  tolerations:
+  - key: "role"
+    operator: "Equal"
+    value: "ingress"
+    effect: "NoSchedule"

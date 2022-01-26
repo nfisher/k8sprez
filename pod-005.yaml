@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+# ...
+spec:
+  containers:
+  # ...
+  affinity:
+    # ...
+    podAntiAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: "app.kubernetes.io/name"
+            operator: In
+            values:
+            - fizzbuzz
+        topologyKey: "kubernetes.io/hostname"

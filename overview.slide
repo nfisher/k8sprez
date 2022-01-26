@@ -19,7 +19,7 @@ nathan.fisher@ibm.com
 
 Fizz Buzz as a Service (FBaaS)
 
-Making fizz buzz available to the masses!
+Bringing fizz buzz to the masses!
 
 
 ## Build It
@@ -28,8 +28,9 @@ Making fizz buzz available to the masses!
 
 .code Dockerfile
 
-    docker build . -t nfinstana/fizzbuzz:1.0.0-85d759de \
-    && docker push nfinstana/fizzbuzz:1.0.0-85d759de
+## Build It - Build and Publish
+
+.code build.sh
 
 ## Run It
 
@@ -41,4 +42,40 @@ Making fizz buzz available to the masses!
 
 .code 002-pod.yaml
 
+## Run It - Taints & Tolerations
+
+Node Taint
+
+.code taint.sh
+
+Pod Toleration
+
+.code 003-pod.yaml
+
+## Run It - Affinity & Anti-affinity
+
+. code 004-pod.yaml
+
 ## Keep It Running
+
+## Deployments
+
+## StatefulSets
+
+## DaemonSets
+
+## CronJobs
+
+## Serve It
+
+## Services
+
+## Endpoint Slices
+
+## Secure It
+
+## Pod Security
+
+## Network Policy
+
+## Controllers & Operators
