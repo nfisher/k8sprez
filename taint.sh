@@ -1,2 +1,1 @@
-$
-kubectl taint nodes node1 role=ingress:NoSchedule
+kubectl taint nodes node01 role=ingress:NoSchedule

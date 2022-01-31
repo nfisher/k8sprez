@@ -1,48 +1,100 @@
 # Kubernetes
 
 Launching Your Next Big Idea
+Summary: Kubernetes Crash Course
 09 Jan 2022
 nathan.fisher@ibm.com
 
+
+
+
 ## Contents
 
-1. **The Idea** - An overview.
-1. **Build It** - Docker.
-1. **Run It** - Pods.
-1. **Keep It Running** - Workloads and Scaling.
-1. **Serve It** - Services.
-1. **Secure It** - Pod Security and Network Policy.
-1. **Maybe but Probably Not** - Controllers and Operators.
+1. 💡 **The Idea** - An overview.
+1. 🔨 **Build It** - Docker.
+1. 🏃 **Run It** - Pods.
+1. 🩹 **Keep It Running** - Workloads, Scaling, and Storage.
+1. 🍽️ **Serve It** - Services and Endpoints.
+1. 🏰 **Secure It** - Pod Security and Network Policy.
+1. 💎 **Rarely Needed Gems** - Controllers and Operators.
 
 
-## The Idea 💡
-
-Fizz Buzz as a Service (FBaaS)
-
-Bringing fizz buzz to the masses!
 
 
-## Build It
+## 💡 The Idea 
 
-## Build It - Docker
+**Fizz Buzz as a Service**
+
+Bring fizz buzz to the masses!
+
+
+
+
+## Objective
+
+.background pods/pods.001.png
+
+
+
+
+## 🔨 Build It
+
+## Docker Build & Publish
+🔨 Build It
 
 .code Dockerfile
 
-## Build It - Build and Publish
-
 .code build.sh
 
-## Run It
+: multi-stage Dockerfile build.
+: last image entry is the output image.
+: distroless allows reduction in image size.
+: minimises attack surface within the image.
+: improves deployment, MTTR, and scale out through faster download.
 
-## Run It - Minimal Pod Spec
 
-.code 001-pod.yaml
 
-## Run It - Noisy Neighbours
 
-.code 002-pod.yaml
+## 🏃 Run It
 
-## Run It - Taints & Tolerations
+.background pods/pods.002.png
+
+## Overview
+🏃 Run It
+
+1. Minimal Pod Spec
+1. Requests & Limits
+1. Taints & Tolerations
+1. Affinity
+1. Anti-affinity
+
+## Minimal Pod Spec
+🏃 Run It
+
+## Minimal Pod Spec
+
+.code pod-001.yaml
+
+: pods are the most basic building block when deploying into a kubernetes cluster.
+: standardised labelling make it easier for workload discovery, filtered log output, monitoring, etc.
+
+## Requests & Limits
+🏃 Run It
+
+
+## Requests & Limits
+
+.code pod-002.yaml
+
+: scheduler has to look at a number of dimensions to decide where to schedule a pod.
+: specifying requests aides the scheduler in ensuring appropriate placement of your workload.
+: specifying limits ensure your workload is a good neighbour by constraining the resources it consumes.
+: requests inform what node a workload will "fit on", limits are used.
+
+## Taints & Tolerations
+🏃 Run It
+
+## Taints & Tolerations
 
 Node Taint
 
@@ -50,32 +102,165 @@ Node Taint
 
 Pod Toleration
 
-.code 003-pod.yaml
+.code pod-003.yaml
 
-## Run It - Affinity & Anti-affinity
+: taints are used to deflect workloads from a node.
+: tolerations are used to 
 
-. code 004-pod.yaml
+## Affinity
+🏃 Run It
 
-## Keep It Running
+## Affinity
+
+.code pod-004.yaml
+
+## Anti-affinity
+🏃 Run It
+
+
+## Anti-affinity
+
+.code pod-005.yaml
+
+
+
+
+## 🩹 Keep It Running
+
+## Workload Types
+🩹 Keep It Running
+
+@
+
+    ===============================================
+    Type          | Description
+    ===============================================
+    CronJobs      | repetitive time based execution
+    DaemonSets    | clusterwide resources
+    Deployments   | scalable stateless resources
+    StatefulSets  | persistent storage resources
+
 
 ## Deployments
+🩹 Keep It Running
+
+1. Pod
+1. ReplicaSet
+1. Deployment
+1. Horizontal Pod Autoscaler (HPA)
+
+## Deployments
+🩹 Keep It Running
+
+.code deployment-001.yaml
+
+## Deployments - Manual Scaling
+🩹 Keep It Running
+
+.code deployment-scale.sh
+
+## Deployments - HPA
+🩹 Keep It Running
+
+.code hpa-001.yaml
 
 ## StatefulSets
+🩹 Keep It Running
+
+## StatefulSets
+🩹 Keep It Running
+
+1. Storage Class
+1. Persistent Volume (PV)
+1. Persistent Volume Claim (PVC)
+1. StatefulSet
+
+## StatefulSets - Storage Class
+🩹 Keep It Running
+
+.code storageclass-001.yaml
+
+## StatefulSets - Persistent Volume
+🩹 Keep It Running
+
+.code pv-001.yaml
+
+## StatefulSets - Stateful Set
+🩹 Keep It Running
+
+.code statefulset-001.yaml
+
+: PersistentVolumes associated with the Pods' PersistentVolume Claims are not deleted when the Pods, or StatefulSet are deleted.
+
+## StatefulSets - Stateful Set w/ Volume
+🩹 Keep It Running
+
+.code statefulset-002.yaml
+
+## StatefulSets - Stateful Set w/ PVC Template
+🩹 Keep It Running
+
+.code statefulset-003.yaml
+
+## DaemonSets
+🩹 Keep It Running
+
+## DaemonSets
+🩹 Keep It Running
+
+1. Pod
+1. DaemonSet
 
 ## DaemonSets
 
-## CronJobs
+.code ds-001.yaml
 
-## Serve It
+## CronJobs
+🩹 Keep It Running
+
+1. Pod
+1. Job
+1. CronJob
+
+## CronJobs
+🩹 Keep It Running
+
+.code cj-001.yaml
+
+
+
+
+## 🍽️  Serve It
+
+## 🍽️  Serve It
+
+1. Service
+1. Endpoint Slice
 
 ## Services
+🍽️  Serve It
 
 ## Endpoint Slices
+🍽️  Serve It
 
-## Secure It
+
+
+
+## 🏰 Secure It
 
 ## Pod Security
+🏰 Secure It
 
 ## Network Policy
+🏰 Secure It
 
-## Controllers & Operators
+
+
+
+## 💎 Rarely Needed Gems
+
+## Controllers
+💎 Rarely Needed Gems
+
+## Operators
+💎 Rarely Needed Gems

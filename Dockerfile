@@ -11,5 +11,5 @@ RUN --mount=type=cache,target=/root/.cache/go-build make linux
 
 # Distroless is a lightweight base image.
 FROM gcr.io/distroless/base-debian11
-COPY --from=build /go/src/app/k8sensor /
-CMD ["/k8sensor"]
+COPY --from=build /go/src/app/fizzbuzz /
+CMD ["/fizzbuzz"]

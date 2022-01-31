@@ -5,6 +5,7 @@ metadata:
   namespace: instana-dev
   labels:
     # Standard labels - https://helm.sh/docs/chart_best_practices/labels/#standard-labels
+    app.kubernetes.io/name: "fizzbuzz"
     app.kubernetes.io/version: "1.0.0-85d759de"
 spec:
   containers:

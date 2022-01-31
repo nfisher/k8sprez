@@ -1,0 +1,15 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hello2
+spec:
+  schedule: "* * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hello2
+            image: busybox
+            command: ["/bin/sh", "-c", "sleep 10"]
+          restartPolicy: OnFailure

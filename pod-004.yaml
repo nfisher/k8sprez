@@ -4,8 +4,12 @@ kind: Pod
 spec:
   containers:
   # ...
-  tolerations:
-  - key: "role"
-    operator: "Equal"
-    value: "ingress"
-    effect: "NoSchedule"
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingRequiredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: "role"
+            operator: "Equal"
+            value: "ingress"
+            effect: "NoSchedule"

@@ -1,0 +1,8 @@
+# ...
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - name: www
+      mountPath: /usr/share/nginx/html
