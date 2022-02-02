@@ -15,7 +15,7 @@ nathan.fisher@ibm.com
 1. 🏃 **Run It** - Pods.
 1. 🩹 **Keep It Running** - Workloads, Scaling, and Storage.
 1. 🍽️ **Serve It** - Services and Endpoints.
-1. 🏰 **Secure It** - Pod Security and Network Policy.
+1. 🏰 **Secure It** - Network Policy.
 1. 💎 **Rarely Needed Gems** - Controllers and Operators.
 
 
@@ -72,6 +72,7 @@ Bring fizz buzz to the masses!
 🏃 Run It
 
 ## Minimal Pod Spec
+🏃 Run It
 
 .code pod-001.yaml
 
@@ -81,8 +82,8 @@ Bring fizz buzz to the masses!
 ## Requests & Limits
 🏃 Run It
 
-
 ## Requests & Limits
+🏃 Run It
 
 .code pod-002.yaml
 
@@ -95,6 +96,7 @@ Bring fizz buzz to the masses!
 🏃 Run It
 
 ## Taints & Tolerations
+🏃 Run It
 
 Node Taint
 
@@ -111,14 +113,15 @@ Pod Toleration
 🏃 Run It
 
 ## Affinity
+🏃 Run It
 
 .code pod-004.yaml
 
 ## Anti-affinity
 🏃 Run It
 
-
 ## Anti-affinity
+🏃 Run It
 
 .code pod-005.yaml
 
@@ -139,6 +142,8 @@ Pod Toleration
     DaemonSets    | clusterwide resources
     Deployments   | scalable stateless resources
     StatefulSets  | persistent storage resources
+
+
 
 
 ## Deployments
@@ -163,6 +168,9 @@ Pod Toleration
 🩹 Keep It Running
 
 .code hpa-001.yaml
+
+
+
 
 ## StatefulSets
 🩹 Keep It Running
@@ -190,7 +198,7 @@ Pod Toleration
 
 .code statefulset-001.yaml
 
-: PersistentVolumes associated with the Pods' PersistentVolume Claims are not deleted when the Pods, or StatefulSet are deleted.
+: PersistentVolumes associated with the PVC's are not deleted when the Pods, or StatefulSet are deleted.
 
 ## StatefulSets - Stateful Set w/ Volume
 🩹 Keep It Running
@@ -201,6 +209,9 @@ Pod Toleration
 🩹 Keep It Running
 
 .code statefulset-003.yaml
+
+
+
 
 ## DaemonSets
 🩹 Keep It Running
@@ -214,6 +225,9 @@ Pod Toleration
 ## DaemonSets
 
 .code ds-001.yaml
+
+
+
 
 ## CronJobs
 🩹 Keep It Running
@@ -237,22 +251,35 @@ Pod Toleration
 1. Service
 1. Endpoint Slice
 
-## Services
+## Service
 🍽️  Serve It
 
-## Endpoint Slices
+## Service
 🍽️  Serve It
 
+.code svc-001.yaml
 
+## Endpoint Slice
+🍽️  Serve It
 
+    $ kubectl get -n kube-system   endpointslices/kube-dns-vmpct
+    NAME             ADDRESSTYPE   PORTS        ENDPOINTS               AGE
+    kube-dns-vmpct   IPv4          9153,53,53   10.244.0.2,10.244.0.3   14d
+
+    $ kubectl get pods -n kube-system -l k8s-app=kube-dns
+    NAME                       READY   STATUS    RESTARTS   AGE
+    coredns-84f998787d-dp445   1/1     Running   0          14d
+    coredns-84f998787d-g7sh2   1/1     Running   0          14d
 
 ## 🏰 Secure It
 
-## Pod Security
+## Network Policy
 🏰 Secure It
 
 ## Network Policy
 🏰 Secure It
+
+.code np-001.yaml
 
 
 
